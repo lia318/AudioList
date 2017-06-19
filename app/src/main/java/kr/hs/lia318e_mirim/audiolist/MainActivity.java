@@ -2,6 +2,8 @@ package kr.hs.lia318e_mirim.audiolist;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -16,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     TextView text_music;
     ProgressBar progress;
     String[] sing = {"day6_Blood", "day6 _I smile", "day6_Say Wow"};
+    int[] musicResIds = {R.raw.day6_blood, R.raw.day6_i_smile, R.raw.day6_say_wow};
+    int selected_Music_Id;
     // 노래 파일을 클릭하고 Shift + F6를 누른 후 Ctrl + V
 
     @Override
@@ -31,5 +35,13 @@ public class MainActivity extends AppCompatActivity {
         list.setAdapter(adapter);
         list.setChoiceMode(ListView.CHOICE_MODE_SINGLE); // 여러 모드 중 하나만 선택 가능
         list.setItemChecked(0, true); // 라디오 버튼이 선택된 상태에서 음악 재생
+        selected_Music_Id = musicResIds[0]; // 재생이 가능하게 한다.
+
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
     } // end of onCreate
 } // end of MainActivity
